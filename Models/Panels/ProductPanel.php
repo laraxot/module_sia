@@ -25,7 +25,7 @@ class ProductPanel extends XotBasePanel {
 	 *
 	 * @var string
 	 */
-	public static $title = "title"; 
+	public static $title = "title";
 
 	/**
 	 * The columns that should be searched.
@@ -58,7 +58,7 @@ class ProductPanel extends XotBasePanel {
 	}
 
 	/**
-	 * on select the option label 
+	 * on select the option label
 	 *
 	 */
 
@@ -93,7 +93,7 @@ class ProductPanel extends XotBasePanel {
 
 	public static function indexQuery($data, $query){
 		//return $query->where('auth_user_id', $request->user()->auth_user_id);
-		return $query; 
+		return $query;
 	}
 
 	/**
@@ -114,51 +114,51 @@ class ProductPanel extends XotBasePanel {
 
 	public static function fields(){
 		return array (
-  0 => 
+  0 =>
   (object)(array(
      'type' => 'Id',
      'name' => 'id',
      'rules' => 'required',
      'comment' => NULL,
   )),
-  1 => 
+  1 =>
   (object)(array(
-     'type' => '\\String',
+     'type' => 'String',
      'name' => 'title',
      'rules' => 'required',
      'comment' => NULL,
   )),
-  2 => 
+  2 =>
   (object)(array(
-     'type' => '\\String',
+     'type' => 'String',
      'name' => 'product_description',
      'comment' => NULL,
   )),
-  3 => 
+  3 =>
   (object)(array(
-     'type' => '\\String',
+     'type' => 'String',
      'name' => 'video_src',
      'comment' => NULL,
   )),
-  4 => 
+  4 =>
   (object)(array(
-     'type' => '\\DateTime',
+     'type' => 'DateTime',
      'name' => 'created_at',
      'comment' => NULL,
   )),
-  5 => 
+  5 =>
   (object)(array(
-     'type' => '\\DateTime',
+     'type' => 'DateTime',
      'name' => 'updated_at',
      'comment' => NULL,
   )),
 );
 	}
-	 
+
 	/**
-	 * Get the tabs available 
+	 * Get the tabs available
 	 *
-	 * @return array  
+	 * @return array
 	 */
 	public function tabs(){
 		$tabs_name = [];
