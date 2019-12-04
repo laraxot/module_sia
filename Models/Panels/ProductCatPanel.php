@@ -12,27 +12,28 @@ use Modules\Xot\Services\RouteService;
 
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-class ProductPanel extends XotBasePanel {
+class ProductCatPanel extends XotBasePanel {
 	/**
 	 * The model the resource corresponds to.
 	 *
 	 * @var string
 	 */
-	public static $model = 'Modules\Sia\Models\Product';
+	public static $model = 'Modules\Sia\Models\ProductCat';
 
 	/**
 	 * The single value that should be used to represent the resource when being displayed.
 	 *
 	 * @var string
 	 */
-	public static $title = "title";
+	public static $title = "title"; 
 
 	/**
 	 * The columns that should be searched.
 	 *
 	 * @var array
 	 */
-	public static $search = [];
+	public static $search = array (
+) ;
 
 	/**
 	* The relationships that should be eager loaded on index queries.
@@ -53,16 +54,17 @@ class ProductPanel extends XotBasePanel {
 	 */
 
 	public function optionId($row){
-		return $row->area_id;
+		return $row->post_id;
 	}
 
 	/**
-	 * on select the option label
+	 * on select the option label 
 	 *
 	 */
 
 	public function optionLabel($row){
-		return $row->area_define_name;
+
+		return $row->post->title ?? 'aaa';
 	}
 
 	/**
@@ -92,7 +94,7 @@ class ProductPanel extends XotBasePanel {
 
 	public static function indexQuery($data, $query){
 		//return $query->where('auth_user_id', $request->user()->auth_user_id);
-		return $query;
+		return $query; 
 	}
 
 	/**
@@ -134,28 +136,18 @@ class ProductPanel extends XotBasePanel {
 			     'name' => 'post.txt',
 			     'comment' => NULL,
 			  )),
-			  (object)(array(
-			     'type' => 'MultiCheckbox',
-			     'name' => 'productCats',
-			     'comment' => NULL,
-			  )),
 			);
 	}
-
+	 
 	/**
-	 * Get the tabs available
+	 * Get the tabs available 
 	 *
-	 * @return array
+	 * @return array  
 	 */
-	public function tabs() {
-        if (in_admin()) {
-            $tabs_name = ['product_cat'];
-        } else {
-            $tabs_name = [];
-        }
-
-        return $tabs_name;
-    }
+	public function tabs(){
+		$tabs_name = [];
+		return $tabs_name;
+	}
 	/**
 	 * Get the cards available for the request.
 	 *
