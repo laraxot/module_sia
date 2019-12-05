@@ -3,11 +3,17 @@
 namespace Modules\Sia\Models\Panels;
 
 use Illuminate\Http\Request;
+
 //--- Services --
 
+//--- Bases ---
 use Modules\Xot\Models\Panels\XotBasePanel;
 
+
+
 class ProductPanel extends XotBasePanel {
+
+    
     /**
      * The model the resource corresponds to.
      *

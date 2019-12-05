@@ -2,7 +2,14 @@
 
 namespace Modules\Sia\Models;
 
+//--- traits ---
+use Modules\Blog\Models\Traits\RatingTrait;
+
+
 class Product extends BaseModel {
+
+    use RatingTrait;
+    
     protected $fillable = ['post_id'];
     protected $dates = ['created_at', 'updated_at'];
     protected $primaryKey = 'post_id';
