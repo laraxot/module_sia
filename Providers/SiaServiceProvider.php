@@ -1,15 +1,12 @@
 <?php
-namespace Modules\Sia\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Foundation\AliasLoader;
+namespace Modules\Sia\Providers;
 
 //---- bases ----
 use Modules\Xot\Providers\XotBaseServiceProvider;
 
-class SiaServiceProvider extends XotBaseServiceProvider{
-    protected $module_dir= __DIR__;
-    protected $module_ns=__NAMESPACE__;
-    public $module_name='sia'; 
+class SiaServiceProvider extends XotBaseServiceProvider {
+    protected $module_dir = __DIR__;
+    protected $module_ns = __NAMESPACE__;
+    public $module_name = 'sia';
 }

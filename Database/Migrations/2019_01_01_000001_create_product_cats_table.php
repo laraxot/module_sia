@@ -1,21 +1,22 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 //--- MODELS ---
 use Modules\Sia\Models\ProductCat as MyModel;
 
-class CreateProductCatsTable extends Migration{
+class CreateProductCatsTable extends Migration {
     public function getTable() {
         return with(new MyModel())->getTable();
     }
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
+    public function up() {
         //--- create ---
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -36,11 +37,7 @@ class CreateProductCatsTable extends Migration{
             if (! Schema::hasColumn($this->getTable(), 'pos')) {
                 $table->integer('pos')->nullable();
             }
-
         });
-
-
-
     }
 
     /**
@@ -48,7 +45,7 @@ class CreateProductCatsTable extends Migration{
      *
      * @return void
      */
-    public function down(){
+    public function down() {
         Schema::dropIfExists($this->getTable());
     }
 }

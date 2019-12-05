@@ -1,33 +1,32 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 //--- MODELS ---
-use Modules\Sia\Models\ProductProductCatPivot as MyModel;
-use Modules\Sia\Models\ProductCat;
 use Modules\Sia\Models\Product;
+use Modules\Sia\Models\ProductCat;
+use Modules\Sia\Models\ProductProductCatPivot as MyModel;
 
-
-class CreateProductProductCatPivotTable extends Migration{
+class CreateProductProductCatPivotTable extends Migration {
     public function getTable() {
         return with(new MyModel())->getTable();
     }
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
+    public function up() {
         //$product_table    =with(new Product()   )->getTable();
         //$product_cat_table=with(new ProductCat())->getTable();
         //--- create ---
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
-                
-                $product_table    =with(new Product()   )->getTable();
-                $product_cat_table=with(new ProductCat())->getTable();
-                
+                $product_table = with(new Product())->getTable();
+                $product_cat_table = with(new ProductCat())->getTable();
+
                 $table->increments('id');
 
                 $table->integer('product_post_id')->unsigned()->nullable();
@@ -52,11 +51,7 @@ class CreateProductProductCatPivotTable extends Migration{
             if (! Schema::hasColumn($this->getTable(), 'pos')) {
                 $table->integer('pos')->nullable();
             }
-
         });
-
-
-
     }
 
     /**
@@ -64,7 +59,7 @@ class CreateProductProductCatPivotTable extends Migration{
      *
      * @return void
      */
-    public function down(){
+    public function down() {
         Schema::dropIfExists($this->getTable());
     }
 }

@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('sia')->group(function() {
+Route::prefix('sia')->group(function () {
     Route::get('/', 'SiaController@index');
 });
